@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<link href="css/style.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<title>Lista estudiantes</title>
+</head>
+<body>
+
+	<div class="section no-pad-bot" id="index-banner">
+
+		<div class="container ">
+			<table class="col s6 card grey lighten-4">
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>Nombre</th>
+						<th>Apellido</th>
+						<th>Carne</th>
+						<th>Carrera</th>
+					</tr>
+				</thead>
+					<th:block th:each="estudiante, row: ${estudiantes}">
+						<tr>
+							<td th:text="${estudiante.cUsuario}"></td>
+							<td th:text="${estudiante.nombre}"></td>
+							<td th:text="${estudiante.apellido}"></td>
+							<td th:text="${estudiante.carne}"></td>
+							<td th:text="${estudiante.carrera}"></td>
+						</tr>
+					</th:block>
+			</table>
+			<div class="row center">
+				<a class="btn waves-effect center" th:href="@{/inicio}">
+								Regresar<i class="material-icons left">arrow_back</i>
+					</a>
+					
+			</div>
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+</body>
+</html>

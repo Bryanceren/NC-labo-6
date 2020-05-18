@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="css/materialize.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<link href="css/style.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<title>Lista estudiantes</title>
+</head>
+<body>
+
+	<div class="section no-pad-bot" id="index-banner">
+
+		<div class="container ">
+			
+			<form th:action="@{/validacion}" th:object="${estudiante}" method="post"
+				class="col s6 card grey lighten-4">
+				<br>
+				<h2 class="header center">Insertar</h2>
+
+				<div class="row center">
+					<div class="input-field col s6 offset-s3">
+						<input id = "nombre" type = "text" th:field = "${estudiante.nombre}">
+						<span th:errors = "${estudiante.nombre}" class="red-text"></span>
+		                <label for="nombre">nombre</label>
+					</div>
+				</div>
+				<div class="row center">
+					<div class="input-field col s6 offset-s3">
+						<input id = "apellido" type = "text" th:field = "*{apellido}">
+						<span th:errors = "*{apellido}" class="red-text"></span>
+		                <label for="apellido">apellido</label>
+					</div>
+				</div>
+				<div class="row center">
+					<div class="input-field col s6 offset-s3">
+						<input id = "carne" type = "text" th:field = "*{carne}">
+						<span th:errors = "*{carne}" class="red-text"></span>
+		                <label for="carne">carne</label>
+					</div>
+				</div>
+				<div class="row center">
+					<div class="input-field col s6 offset-s3">
+						<input id = "carrera" type = "text" th:field = "*{carrera}" name="carrera">
+						<span th:errors = "*{carrera}" class="red-text"></span>
+		                <label for="carrera">carrera</label>
+					</div>
+				</div>
+				<div class="row center">
+					<button class="btn waves-effect col s4 offset-s4 btn-large modal-trigger" data-target="modal1"
+								type="submit" name="codigo">
+								Insertar estudiante<i class="material-icons right">add_circle</i>
+					</button>
+					<br>
+					<br>
+					<div th:if="${success}" id="modal1" class="modal">
+					    <div class="modal-content">
+					      <h2>Estudiante insertado con exito</h2>
+					      
+					    </div>
+					    <div class="modal-footer">
+					      <a href="@{/inicio}" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+					    </div>
+				  	</div> 
+					<br>
+					<a class="btn-outline-info float-right mr-3" th:href="@{/listado}" role="button">Ver registros</a>
+				</div>
+				<br>
+			</form>
+			  
+			          
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/materialize.js"></script>
+	<script src="js/init.js"></script>
+</body>
+</html>
