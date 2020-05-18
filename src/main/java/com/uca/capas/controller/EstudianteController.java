@@ -31,18 +31,19 @@ public class EstudianteController {
 	@RequestMapping("/validacion")
 	public ModelAndView validacion(@Valid @ModelAttribute Estudiante estudiante, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
-		
-		if(!result.hasErrors()) 
+		if(result.hasErrors()) 
 		{
 			mav.setViewName("index");
-		}
-		else 
+		}else
 		{
+			estudianteDAO.create(estudiante);
+			Estudiante estudiante2 = new Estudiante();
+			mav.addObject("estudiante", estudiante2);
 			mav.addObject("success", true);
 			mav.setViewName("index");
-			estudianteDAO.create(estudiante);
 
 		}
+		
 		
 		return mav;
 	}

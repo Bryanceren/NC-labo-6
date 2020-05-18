@@ -33,7 +33,7 @@ public class Estudiante {
 	private String carne;
 	
 	@Column(name="carrera")
-	@NotEmpty(message="Carrera no puede estar vacio")
+	@NotEmpty(message="La carrera no puede estar vacio")
 	private String carrera;
 	
 	

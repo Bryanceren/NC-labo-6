@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link href="css/materialize.css" type="text/css" rel="stylesheet"
@@ -50,21 +51,13 @@
 					</div>
 				</div>
 				<div class="row center">
-					<button class="btn waves-effect col s4 offset-s4 btn-large modal-trigger" data-target="modal1"
-								type="submit" name="codigo">
+					<button class="btn waves-effect col s4 offset-s4 btn-large"
+								type="submit">
 								Insertar estudiante<i class="material-icons right">add_circle</i>
 					</button>
 					<br>
 					<br>
-					<div th:if="${success}" id="modal1" class="modal">
-					    <div class="modal-content">
-					      <h2>Estudiante insertado con exito</h2>
-					      
-					    </div>
-					    <div class="modal-footer">
-					      <a href="@{/inicio}" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
-					    </div>
-				  	</div> 
+					
 					<br>
 					<a class="btn-outline-info float-right mr-3" th:href="@{/listado}" role="button">Ver registros</a>
 				</div>
