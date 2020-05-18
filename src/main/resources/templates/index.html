@@ -56,7 +56,7 @@
 								Insertar estudiante<i class="material-icons right">add_circle</i>
 					</button>
 					<br>
-					<br>
+					<span th:if = "${success}" class="green-text">Estudiante insertado con exito</span>
 					
 					<br>
 					<a class="btn-outline-info float-right mr-3" th:href="@{/listado}" role="button">Ver registros</a>
