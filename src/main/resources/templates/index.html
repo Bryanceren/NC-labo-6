@@ -18,14 +18,15 @@
 		<div class="container ">
 			
 			<form th:action="@{/validacion}" th:object="${estudiante}" method="post"
-				class="col s6 card grey lighten-4">
+				class="col s6 card grey lighten-3 hoverable" id="insertarmain">
+				<br>
 				<br>
 				<h2 class="header center">Insertar</h2>
 
 				<div class="row center">
 					<div class="input-field col s6 offset-s3">
-						<input id = "nombre" type = "text" th:field = "${estudiante.nombre}">
-						<span th:errors = "${estudiante.nombre}" class="red-text"></span>
+						<input id = "nombre" type = "text" th:field = "*{nombre}">
+						<span th:errors = "*{nombre}" class="red-text"></span>
 		                <label for="nombre">nombre</label>
 					</div>
 				</div>
@@ -56,16 +57,68 @@
 								Insertar estudiante<i class="material-icons right">add_circle</i>
 					</button>
 					<br>
+					<br>
+					<br>
 					<span th:if = "${success}" class="green-text">Estudiante insertado con exito</span>
-					
+					<br>
 					<br>
 					<a class="btn-outline-info float-right mr-3" th:href="@{/listado}" role="button">Ver registros</a>
 				</div>
 				<br>
 			</form>
+			<br>
+			<br>
+			<br>
+			<form th:action="@{/eliminar}" method="post" class="col s6 card grey lighten-3 hoverable" id="eliminarmain">
+				<br>
+				<br>
+				<h2 class="center red-text">Eliminar estudiante</h2>
+				<div class="row center">
+					<div class="input-field col s6 offset-s3">
+						<input id = "codigo" type = "number" name="codigo">
+		                <label for="codigo">Ingrese codigo de estudiante</label>
+		                <br>
+		                <br>
+		                <button class="btn waves-effect col s4 offset-s4 btn-large"
+								type="submit">Eliminar<i class="material-icons right">delete</i></button>
+						<br>
+						<br>
+						<br>
+						<span th:if = "${success2}" class="green-text">Estudiante eliminado con exito</span>
+						<br>
+						<br>
+						<a class="btn-outline-info float-right mr-3" th:href="@{/listado}" role="button">Ver registros</a>
+						<br>
+						<br>				
+					</div>
+				</div>		
+			</form>
 			  
 			          
 		</div>
+		<br>
+		<br>
+		<br>
+		<footer class="page-footer teal lighten-1">
+          <div class="container">
+            <div class="row">
+              
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#insertarmain">Insertar</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#eliminarmain">Eliminar</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            Bryan Ceren
+            <p class="grey-text text-lighten-4 right">00139817@uca.edu.sv</p>
+            </div>
+          </div>
+        </footer>
 	</div>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="js/materialize.js"></script>
